@@ -8,12 +8,9 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)", // If you're using /api prefix, otherwise adjust accordingly
-      "dest": "/$1" // Forward requests to the server.js
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html" // Adjust if you have a frontend served here
+      "src": "/(.*)", 
+      "dest": "server.js"
     }
   ]
 }
+
