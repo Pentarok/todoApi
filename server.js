@@ -12,11 +12,13 @@ const app = express();
 
 
 
+
 app.use(cors({
-    origin:'https://todo-client-git-main-mak-pentaroks-projects.vercel.app',
-    methods:["GET,POST,PUT,DELETE"],
-    credentials:true
+    origin: 'https://todo-client-git-main-mak-pentaroks-projects.vercel.app',
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
 }));
+
 // middlewares
 app.use(express.json());
 app.use(cookieParser());
