@@ -12,16 +12,22 @@ const app = express();
 
 
 
+
 app.use(cors({
-    origin:'http://localhost:5173',
-    methods:["GET,POST,PUT,DELETE"],
-    credentials:true
+    origin: 'https://todo-client-git-main-mak-pentaroks-projects.vercel.app',
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
 }));
+
 // middlewares
 app.use(express.json());
 app.use(cookieParser());
+<<<<<<< HEAD
 /*let uri = 'mongodb://127.0.0.1:27017/test';*/
  let uri = 'mongodb+srv://og:OG1234@cluster0.sul4j.mongodb.net/Cluster0?retryWrites=true&w=majority&appName=Cluster0' 
+=======
+let uri = 'mongodb+srv://og:OG1234@cluster0.sul4j.mongodb.net/Cluster0?retryWrites=true&w=majority&appName=Cluster0' 
+>>>>>>> b0184b9ea5a468679b60924a87f16f8123c8efd7
 mongoose.connect(uri)
 .then(
     console.log('Connected to the database')
@@ -60,6 +66,19 @@ app.delete('/todo/:id',async(req,res)=>{
     }
   
 })
+app.put('/todo/:id/markDone', async (req, res) => {
+    const { id } = req.params;
+    const { done } = req.body; // Expecting a body with { done: true/false }
+
+    try {
+        const updatedTodo = await TodoModel.findByIdAndUpdate(id, { done }, { new: true });
+        res.json(updatedTodo);
+    } catch (error) {
+        res.status(500).json('An error occurred');
+    }
+});
+
+
 app.put('/todo/updateOrder', async (req, res) => {
     const { tasks } = req.body;
   
