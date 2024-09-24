@@ -2,17 +2,18 @@
   "version": 2,
   "builds": [
     {
-  "src": "/(.*)\\.js",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+      "src": "server.js",  // Entry point for the Node.js backend
+      "use": "@vercel/node" // Use Vercel's Node.js serverless function
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "/"
+      "src": "/api/(.*)", // Handle requests to your API
+      "dest": "/api/$1"   // Forward to the API
+    },
+    {
+      "src": "/(.*)", // All other requests
+      "dest": "/index.html" // Change this if you have a different static file
     }
   ]
 }
