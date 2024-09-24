@@ -61,6 +61,19 @@ app.delete('/todo/:id',async(req,res)=>{
     }
   
 })
+app.put('/todo/:id/markDone', async (req, res) => {
+    const { id } = req.params;
+    const { done } = req.body; // Expecting a body with { done: true/false }
+
+    try {
+        const updatedTodo = await TodoModel.findByIdAndUpdate(id, { done }, { new: true });
+        res.json(updatedTodo);
+    } catch (error) {
+        res.status(500).json('An error occurred');
+    }
+});
+
+
 app.put('/todo/updateOrder', async (req, res) => {
     const { tasks } = req.body;
   
