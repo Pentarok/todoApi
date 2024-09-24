@@ -22,12 +22,10 @@ app.use(cors({
 // middlewares
 app.use(express.json());
 app.use(cookieParser());
-<<<<<<< HEAD
 /*let uri = 'mongodb://127.0.0.1:27017/test';*/
- let uri = 'mongodb+srv://og:OG1234@cluster0.sul4j.mongodb.net/Cluster0?retryWrites=true&w=majority&appName=Cluster0' 
-=======
+
 let uri = 'mongodb+srv://og:OG1234@cluster0.sul4j.mongodb.net/Cluster0?retryWrites=true&w=majority&appName=Cluster0' 
->>>>>>> b0184b9ea5a468679b60924a87f16f8123c8efd7
+
 mongoose.connect(uri)
 .then(
     console.log('Connected to the database')
