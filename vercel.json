@@ -2,18 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "server.js",  
-      "use": "@vercel/node" 
+      "src": "server.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"   
+      "src": "/api/(.*)", // If you're using /api prefix, otherwise adjust accordingly
+      "dest": "/$1" // Forward requests to the server.js
     },
     {
-      "src": "/(.*)", 
-      "dest": "/index.html" 
+      "src": "/(.*)",
+      "dest": "/index.html" // Adjust if you have a frontend served here
     }
   ]
 }
