@@ -14,7 +14,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: 'https://todo-client-git-main-mak-pentaroks-projects.vercel.app',
+    origin: 'https://todo-client-73cj.vercel.app',
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
